@@ -32,8 +32,16 @@ query {
     mixedInput(a:{hello:"world"})
 }
 ```
-It will output {hello:"world}
-
+It will output 
+```json
+{
+  "data": {
+    "mixedInput": {
+      "hello": "world"
+    }
+  }
+}
+```json
 
 
 
