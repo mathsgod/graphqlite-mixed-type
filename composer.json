@@ -1,0 +1,21 @@
+{
+    "name": "mathsgod/graphqlite-mixed-type",
+    "description": "mixed type for graphqlite",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Raymond Chong",
+            "email": "mathsgod@yahoo.com"
+        }
+    ],
+    "require": {},
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GQL\\TYPE\\": "src"
+        }
+    },
+    "require-dev": {
+        "thecodingmachine/graphqlite": "^4.1"
+    }
+}
