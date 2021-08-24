@@ -1,5 +1,8 @@
 <?php
 
+namespace GQL\Type;
+
+
 use GQL\Type\MixedType;
 use GraphQL\Type\Definition\InputType;
 use GraphQL\Type\Definition\NamedType;

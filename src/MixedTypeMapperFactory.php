@@ -1,5 +1,8 @@
 <?php
 
+namespace GQL\Type;
+
+
 use TheCodingMachine\GraphQLite\Mappers\Root\RootTypeMapperFactoryContext;
 use TheCodingMachine\GraphQLite\Mappers\Root\RootTypeMapperFactoryInterface;
 use TheCodingMachine\GraphQLite\Mappers\Root\RootTypeMapperInterface;
