@@ -41,7 +41,7 @@ It will output
     }
   }
 }
-```json
+```
 
 
 
