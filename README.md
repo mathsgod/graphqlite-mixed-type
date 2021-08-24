@@ -1,6 +1,6 @@
 # graphqlite-mixed-type
 
-input and output mixed type for 
+input and output mixed type for graphqlite
 
 ## Setup
 ```php
