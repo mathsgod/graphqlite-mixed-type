@@ -39,7 +39,7 @@ class MixedType extends ScalarType
      */
     public function serialize($value)
     {
-        return serialize($value);
+        return $value;
     }
 
     /**
