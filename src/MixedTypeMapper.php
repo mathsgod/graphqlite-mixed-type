@@ -22,20 +22,21 @@ class MixedTypeMapper implements RootTypeMapperInterface
         $this->next = $next;
     }
 
-    public function toGraphQLOutputType(Type $type, ?OutputType $subType, ReflectionMethod $refMethod, DocBlock $docBlockObj): OutputType
+    public function toGraphQLOutputType(Type $type, ?OutputType $subType, $reflector, DocBlock $docBlockObj): OutputType
     {
         if ((string)$type == "mixed") {
             return MixedType::getInstance();
         }
-        return $this->next->toGraphQLOutputType($type, $subType, $refMethod, $docBlockObj);
+        return $this->next->toGraphQLOutputType($type, $subType, $reflector, $docBlockObj);
     }
 
-    public function toGraphQLInputType(Type $type, ?InputType $subType, string $argumentName, ReflectionMethod $refMethod, DocBlock $docBlockObj): InputType
+
+    public function toGraphQLInputType(Type $type, ?InputType $subType, string $argumentName, $reflector, DocBlock $docBlockObj): InputType
     {
         if ((string)$type == "mixed") {
             return MixedType::getInstance();
         }
-        return $this->next->toGraphQLInputType($type, $subType, $argumentName, $refMethod, $docBlockObj);
+        return $this->next->toGraphQLInputType($type, $subType, $argumentName, $reflector, $docBlockObj);
     }
 
     /**
