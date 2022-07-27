@@ -1,3 +1,5 @@
+[![PHP Composer](https://github.com/mathsgod/graphqlite-mixed-type/actions/workflows/php.yml/badge.svg)](https://github.com/mathsgod/graphqlite-mixed-type/actions/workflows/php.yml)
+
 # graphqlite-mixed-type
 
 input and output mixed type for <a href="https://github.com/thecodingmachine/graphqlite">thecodingmachine/graphqlite</a>
