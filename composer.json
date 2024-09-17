@@ -8,13 +8,13 @@
             "email": "mathsgod@yahoo.com"
         }
     ],
+    "require": {
+        "thecodingmachine/graphqlite": "^7.0"
+    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "GQL\\Type\\": "src"
         }
-    },
-    "require-dev": {
-        "thecodingmachine/graphqlite": "*"
     }
 }
