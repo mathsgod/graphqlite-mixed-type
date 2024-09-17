@@ -7,9 +7,11 @@ use GQL\Type\MixedType;
 use GraphQL\Type\Definition\InputType;
 use GraphQL\Type\Definition\NamedType;
 use GraphQL\Type\Definition\OutputType;
+use GraphQL\Type\Definition\Type as DefinitionType;
 use phpDocumentor\Reflection\DocBlock;
 use phpDocumentor\Reflection\Type;
 use ReflectionMethod;
+use ReflectionProperty;
 use TheCodingMachine\GraphQLite\Mappers\Root\RootTypeMapperInterface;
 
 class MixedTypeMapper implements RootTypeMapperInterface
@@ -22,7 +24,7 @@ class MixedTypeMapper implements RootTypeMapperInterface
         $this->next = $next;
     }
 
-    public function toGraphQLOutputType(Type $type, ?OutputType $subType, $reflector, DocBlock $docBlockObj): OutputType
+    public function toGraphQLOutputType(Type $type, ?OutputType $subType, ReflectionMethod|ReflectionProperty $reflector, DocBlock $docBlockObj): OutputType&DefinitionType
     {
         if ((string)$type == "mixed") {
             return MixedType::getInstance();
@@ -31,7 +33,7 @@ class MixedTypeMapper implements RootTypeMapperInterface
     }
 
 
-    public function toGraphQLInputType(Type $type, ?InputType $subType, string $argumentName, $reflector, DocBlock $docBlockObj): InputType
+    public function toGraphQLInputType(Type $type, ?InputType $subType, string $argumentName, ReflectionMethod|ReflectionProperty $reflector, DocBlock $docBlockObj): InputType&DefinitionType
     {
         if ((string)$type == "mixed") {
             return MixedType::getInstance();
@@ -47,7 +49,7 @@ class MixedTypeMapper implements RootTypeMapperInterface
      * @param string $typeName The name of the GraphQL type
      * @return NamedType
      */
-    public function mapNameToType(string $typeName): NamedType
+    public function mapNameToType(string $typeName): NamedType&DefinitionType
     {
         if ($typeName === MixedType::NAME) {
             return MixedType::getInstance();
