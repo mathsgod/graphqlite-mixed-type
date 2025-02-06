@@ -2,6 +2,7 @@
 
 namespace GQL\Type;
 
+use GraphQL\Language\AST\Node;
 use GraphQL\Type\Definition\ScalarType;
 use GraphQL\Utils\AST;
 
@@ -53,21 +54,11 @@ class MixedType extends ScalarType
         return $value;
     }
 
-    /**
-     * Parses an externally provided literal value (hardcoded in GraphQL query) to use as an input
-     *
-     * In the case of an invalid node or value this method must throw an Exception
-     *
-     * @param Node         $valueNode
-     * @param mixed[]|null $variables
-     *
-     * @return mixed
-     *
-     * @throws Exception
-     */
-    public function parseLiteral($valueNode, ?array $variables = null)
+    public function parseLiteral(Node $valueNode, ?array $variables = null)
     {
         $value = AST::valueFromASTUntyped($valueNode);
         return $value;
     }
+
+
 }
