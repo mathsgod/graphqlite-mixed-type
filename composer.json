@@ -16,5 +16,16 @@
         "psr-4": {
             "GQL\\Type\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GQL\\Type\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12"
     }
 }
