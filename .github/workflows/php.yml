@@ -33,4 +33,4 @@ jobs:
       run: composer install --prefer-dist --no-progress --ignore-platform-req=ext-redis
 
     - name: Run test suite
-      run: composer run-script test -- --ignore-platform-req=ext-redis
+      run: vendor/bin/phpunit
