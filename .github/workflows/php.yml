@@ -14,6 +14,12 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        graphqlite-version: ["8.1.*", "8.2.*", "8.3.*"]
+
+    name: "graphqlite ${{ matrix.graphqlite-version }}"
+
     steps:
     - uses: actions/checkout@v3
 
@@ -25,12 +31,14 @@ jobs:
       uses: actions/cache@v3
       with:
         path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-php-graphqlite-${{ matrix.graphqlite-version }}-${{ hashFiles('**/composer.json') }}
         restore-keys: |
-          ${{ runner.os }}-php-
+          ${{ runner.os }}-php-graphqlite-${{ matrix.graphqlite-version }}-
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --ignore-platform-req=ext-redis
+      run: |
+        composer require thecodingmachine/graphqlite:${{ matrix.graphqlite-version }} --no-update
+        composer update --prefer-dist --no-progress --ignore-platform-req=ext-redis
 
     - name: Run test suite
       run: vendor/bin/phpunit
