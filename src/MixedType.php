@@ -11,10 +11,7 @@ class MixedType extends ScalarType
 {
     public const NAME = 'mixed';
 
-    /**
-     * @var self
-     */
-    private static $instance;
+    private static ?self $instance = null;
 
     public function __construct()
     {
@@ -35,8 +32,8 @@ class MixedType extends ScalarType
     /**
      * Serializes an internal value to include in a response.
      *
-     * @param string $value
-     * @return string
+     * @param mixed $value
+     * @return mixed
      */
     public function serialize($value)
     {
@@ -56,8 +53,7 @@ class MixedType extends ScalarType
 
     public function parseLiteral(Node $valueNode, ?array $variables = null)
     {
-        $value = AST::valueFromASTUntyped($valueNode);
-        return $value;
+        return AST::valueFromASTUntyped($valueNode);
     }
 
 
